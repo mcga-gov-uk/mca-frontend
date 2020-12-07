@@ -1,0 +1,7 @@
+{% macro bareboat_merchant_vessel_type(data, name, classes, jsonPath, id, value, description, labelClass, required) %}
+{% set options = [{"name":"Marine Autonomous Surface Ship","value":"Marine Autonomous Surface Ship"},{"name":"Tug","value":"Tug"},{"name":"Tug/Workboat","value":"Tug/Workboat"}] %}
+{% set favourites = undefined %}
+{% set favouriteKeys = [] %}
+{% from "select.html" import select %}
+{{ select(id if id else 'bareboat.merchant.vessel.type', name=name, value=value if value else data.bareboat.merchant.vessel.type, options=options, required=required, description=description, labelClass=labelClass, favourites=favourites, favouriteKeys=favouriteKeys) }}
+{% endmacro %}

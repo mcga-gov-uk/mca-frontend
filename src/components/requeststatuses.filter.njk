@@ -1,0 +1,6 @@
+{% macro requeststatuses_filter(value, required, change) %}
+{% set options = [{"name":"Draft","value":"Draft"},{"name":"Submitted","value":"Submitted"},{"name":"Awaiting Customer","value":"Awaiting Customer"},{"name":"Payment Pending","value":"Payment Pending"},{"name":"Carving and Marking Note Issued","value":"Carving and Marking Note Issued"},{"name":"Carving and Marking Note Returned","value":"Carving and Marking Note Returned"},{"name":"Accepted","value":"Accepted"},{"name":"Rejected","value":"Rejected"},{"name":"Cancelled","value":"Cancelled"},{"name":"Brought Forward","value":"Brought Forward"}] %}
+{% from "filter-select.html" import filter_select %}
+{{ filter_select(id='status', name='status', value=value, change=change, options=options 
+        ) }}
+{% endmacro %}

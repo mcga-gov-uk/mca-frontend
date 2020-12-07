@@ -1,0 +1,7 @@
+{% macro merchant_vessel_type(data, name, classes, jsonPath, id, value, description, labelClass, required) %}
+{% set options = [{"name":"Bulk Carrier","value":"Bulk Carrier"},{"name":"Cargo Ship","value":"Cargo Ship"},{"name":"Commercial Vessel","value":"Commercial Vessel"},{"name":"Marine Autonomous Surface Ship","value":"Marine Autonomous Surface Ship"},{"name":"Offshore Supply","value":"Offshore Supply"},{"name":"Oil Drilling Ship","value":"Oil Drilling Ship"},{"name":"Oil/Product Tanker","value":"Oil/Product Tanker"},{"name":"Passenger Ship","value":"Passenger Ship"},{"name":"Pleasure Vessel","value":"Pleasure Vessel"},{"name":"Pleasure Yacht","value":"Pleasure Yacht"},{"name":"Ro-Ro Passenger","value":"Ro-Ro Passenger"},{"name":"Tug/Workboat","value":"Tug/Workboat"}] %}
+{% set favourites = undefined %}
+{% set favouriteKeys = [] %}
+{% from "select.html" import select %}
+{{ select(id if id else 'merchant.vessel.type', name=name, value=value if value else data.merchant.vessel.type, options=options, required=required, description=description, labelClass=labelClass, favourites=favourites, favouriteKeys=favouriteKeys) }}
+{% endmacro %}

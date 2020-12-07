@@ -1,0 +1,24 @@
+{% macro select(id, name, description, options, value, classes, labelClass, required, favourites, favouriteKeys=[]) %}
+<div class="govuk-form-group {{ classes }}" id="{{ id }}-group">
+    <label class="govuk-label {{ labelClass if labelClass else 'govuk-label--m' }}">{{ name }}</label>
+    <span id="{{ id }}-error" class="govuk-error-message" style="display:none" data-error-msg="Select {{ name }}">Select {{ name }}</span>
+    {% if description %}<span class="govuk-hint">{{ description }}</span> {% endif %}
+    <select class="govuk-select" {% if required %}required{% endif %} id="{{ id }}" name="{{ id }}">
+        <option {% if required %}disabled{% endif %} selected value> -- select an option --</option>
+        {% if favourites %}
+            <option disabled>──────────</option>
+            {% for favourite in favourites %}
+                <option value="{{ favourite.value }}" {% if favourite.value == value%}selected{%endif%} >{{ favourite.name }}</option>
+            {% endfor %}
+            <option disabled>──────────</option>
+        {% endif %}
+
+        {% for option in options %}
+            {% if option.value not in favouriteKeys %}
+                <option value="{{ option.value }}" {% if option.value == value%}selected{%endif%} >{{ option.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+</div>
+<span id="{{ id }}-spacer"></span>
+{% endmacro %}

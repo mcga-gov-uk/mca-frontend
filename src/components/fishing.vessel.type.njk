@@ -1,0 +1,7 @@
+{% macro fishing_vessel_type(data, name, classes, jsonPath, id, value, description, labelClass, required) %}
+{% set options = [{"name":"Beam Trawler","value":"Beam Trawler"},{"name":"Fishing Vessel","value":"Fishing Vessel"},{"name":"Marine Autonomous Surface Ship","value":"Marine Autonomous Surface Ship"}] %}
+{% set favourites = undefined %}
+{% set favouriteKeys = [] %}
+{% from "select.html" import select %}
+{{ select(id if id else 'fishing.vessel.type', name=name, value=value if value else data.fishing.vessel.type, options=options, required=required, description=description, labelClass=labelClass, favourites=favourites, favouriteKeys=favouriteKeys) }}
+{% endmacro %}

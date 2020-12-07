@@ -1,0 +1,7 @@
+{% macro registers(data, name, classes, jsonPath, id, value, description, labelClass, required) %}
+{% set options = [{"name":"Small Ships","value":"Small Ships"},{"name":"Merchant","value":"Merchant"},{"name":"Dependent Territory","value":"Dependent Territory"},{"name":"Mortgage Transcription","value":"Mortgage Transcription"},{"name":"Mortgage Intent","value":"Mortgage Intent"}] %}
+{% set favourites = undefined %}
+{% set favouriteKeys = [] %}
+{% from "select.html" import select %}
+{{ select(id if id else 'registers', name=name, value=value if value else data.registers, options=options, required=required, description=description, labelClass=labelClass, favourites=favourites, favouriteKeys=favouriteKeys) }}
+{% endmacro %}

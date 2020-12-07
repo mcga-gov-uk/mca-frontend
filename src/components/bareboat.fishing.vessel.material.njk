@@ -1,0 +1,7 @@
+{% macro bareboat_fishing_vessel_material(data, name, classes, jsonPath, id, value, description, labelClass, required) %}
+{% set options = [] %}
+{% set favourites = undefined %}
+{% set favouriteKeys = [] %}
+{% from "select.html" import select %}
+{{ select(id if id else 'bareboat.fishing.vessel.material', name=name, value=value if value else data.bareboat.fishing.vessel.material, options=options, required=required, description=description, labelClass=labelClass, favourites=favourites, favouriteKeys=favouriteKeys) }}
+{% endmacro %}

@@ -1,0 +1,6 @@
+{% macro registrationstatuses_filter(value, required, change) %}
+{% set options = [{"name":"Name Reserved","value":"Name Reserved"},{"name":"Provisional","value":"Provisional"},{"name":"Registered","value":"Registered"},{"name":"Closed","value":"Closed"},{"name":"Pending","value":"Pending"},{"name":"Frozen","value":"Frozen"},{"name":"Suspended","value":"Suspended"}] %}
+{% from "filter-select.html" import filter_select %}
+{{ filter_select(id='status', name='status', value=value, change=change, options=options 
+        ) }}
+{% endmacro %}

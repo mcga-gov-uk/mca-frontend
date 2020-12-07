@@ -1,0 +1,7 @@
+{% macro fishing_vessel_material(data, name, classes, jsonPath, id, value, description, labelClass, required) %}
+{% set options = [{"name":"Fibreglass","value":"Fibreglass"},{"name":"Glass Reinforced Plastic","value":"Glass Reinforced Plastic"},{"name":"Steel","value":"Steel"},{"name":"Wood","value":"Wood"}] %}
+{% set favourites = undefined %}
+{% set favouriteKeys = [] %}
+{% from "select.html" import select %}
+{{ select(id if id else 'fishing.vessel.material', name=name, value=value if value else data.fishing.vessel.material, options=options, required=required, description=description, labelClass=labelClass, favourites=favourites, favouriteKeys=favouriteKeys) }}
+{% endmacro %}
